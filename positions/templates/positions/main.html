@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block tittle %}Main page{% endblock tittle %}
+
+{% block content %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Logo</th>
+                <th scope="col">Name</th>
+                <th scope="col">Rank</th>
+                <th scope="col">Market Cap</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% if data %}
+                {% for dat in data %}
+                <tr>
+                    <td><img src="{{dat.image}}" alt="" height="60"></td>
+                    <td class="align-middle">{{dat.name}}</td>
+                    <td class="align-middle">{{dat.market_cap_rank}}</td>
+                    <td class="align-middle">{{dat.market_cap}}</td>
+                    <td class="align-middle">{{dat.current_price}}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <p>There is no data Yet</p>
+            {% endif %}
+        </tbody>
+    </table>
+
+{% endblock content %}
